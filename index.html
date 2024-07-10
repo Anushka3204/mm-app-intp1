@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISE 'N' SHINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<center>
+    <h1>RISE 'N' SHINE</h1>
+   <form onsubmit="gm()">
+      <input type="submit" value="Get Message" class="btn"/>
+      </form>
+      <h2 id="msg"/>
+      <h2 id="aut"/>
+   
+ <script>
+         function gm()
+{
+   event.preventDefault();
+  let msg = document.getElementById("msg");
+  let aut = document.getElementById("aut");
+
+
+   let url="https://api.quotable.io/random";
+   fetch(url)
+   .then(res=>res.json())
+   .then(data=>{
+                 msg.innerHTML=data.content;
+                 aut.innerHTML=data.author;
+})
+.catch(err=> msg.innerHTML="Issue" +err);
+
+}
+
+</script>
+</center>
+
+</body>
+</html>
+
+
+
+
+
